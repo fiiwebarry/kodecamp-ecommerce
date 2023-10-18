@@ -37,13 +37,14 @@ const Products = () => {
                 return (
                     <div className="rounded border-indigo-600" key={id} >
                         <p>title:{title}</p>
-                        <img className="w-[20px]" src={image} />
+                        <img className="w-[10px]" src={image} />
                         {price}
 
                     </div>
                 )
             })}
-            Products</div>
+        </div>
+        <h1 className="underline">products</h1>
 
     </div>)
 }
