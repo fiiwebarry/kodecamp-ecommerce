@@ -33,10 +33,12 @@ const Products = () => {
 
         <div>
             {products.map((product) => {
-                const { id, title } = product;
+                const { id, title, image, price } = product;
                 return (
-                    <div key={id}>
-                        {title}
+                    <div className="rounded border-indigo-600" key={id} >
+                        <p>title:{title}</p>
+                        <img className="w-[20px]" src={image} />
+                        {price}
 
                     </div>
                 )
