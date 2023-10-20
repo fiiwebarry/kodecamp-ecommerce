@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 
 import Products from '../Components/Products'
 import Navbar from '../Components/Navbar'
 
 
-const Homepage = () => {
+const Homepage = ({ addItem, setAddItem }) => {
     return (
         <div>
-            <Navbar />
-            <Products />
+            <Navbar addItem={addItem} setAddItem={setAddItem} />
+            <Products addItem={addItem} setAddItem={setAddItem} />
         </div>
     )
 }

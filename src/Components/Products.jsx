@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import { BsCart4 } from "react-icons/bs"
 import { BsStarFill, BsStar } from "react-icons/bs"
 
+
 import { useEffect, useState } from "react";
 
 
 
 
-const Products = () => {
+
+// eslint-disable-next-line react/prop-types
+const Products = ({ addItem, setAddItem }) => {
 
     const [isLoading, setIsLoading] = useState(false)
     const [products, setProducts] = useState([])
@@ -31,11 +34,18 @@ const Products = () => {
 
     };
 
+    const addProduct = (product) => {
+        setAddItem([...addItem, { ...product, quantity: 1, }])
+
+
+    }
+
     useEffect(() => {
 
         getProducts();
     }, [])
     return (<div className="container mx-auto w-[90%]">
+
 
         {isLoading ? (<div>
             <h1>Loading.........</h1>
@@ -71,13 +81,6 @@ const Products = () => {
 
 
 
-                                {/* <div className="flex">
-                               <BiStar />
-                               <BiStar />
-                               <BiStar />
-                               <BiStar />
-                               <BiStar />
-                           </div> */}
 
 
                             </div>
@@ -87,8 +90,9 @@ const Products = () => {
 
                         </Link>
                             <div className="flex justify-end p-2">
-                                <button className="px-3 py-2 border-2 border-solid rounded-lg bg-gray-50 border-red-900 text-red-800 flex  gap-2 items-center"> <BsCart4 />Add</button>
-                            </div></div>
+                                <button onClick={() => addProduct(product)} className="px-3 py-2 border-2 border-solid rounded-lg bg-gray-50 border-red-900 text-red-800 flex  gap-2 items-center"> <BsCart4 />Add</button>
+                            </div>
+                        </div>
 
                     )
                 })}

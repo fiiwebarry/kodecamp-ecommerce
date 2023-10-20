@@ -16,10 +16,11 @@ const Product = () => {
         try {
             setIsLoading(true);
             const response = await axios.get(`/products/${id}`)
+            console.log(response);
 
 
             if (response.status === 200) {
-                console.log(response)
+                // console.log(response)
                 setProduct(response.data)
                 setIsLoading(false)
             }
@@ -37,7 +38,7 @@ const Product = () => {
         getProduct();
     }, [])
 
-    const { title, image, price, rating, description } = product;
+    const { title, image, price, description } = product;
 
     return (
         <div>
@@ -50,8 +51,9 @@ const Product = () => {
                         <p className="mt-[2px] text-base font-semibold">{title}</p>
                         <p>{description}</p>
                         <p> Price: ${price}</p>
-                        <p>{rating.rate}</p>
-                        <p className="flex"> {[
+                        {/* <p>{rating.rate}</p> */}
+
+                        {/* <p className="flex"> {[
                             ...Array(Math.round(rating.rate))].map((e, i) =>
 
                                 (<BsStarFill key={i} className="text-orange-500" />))
@@ -60,7 +62,7 @@ const Product = () => {
                                 ...Array(5 - Math.round(rating.rate))].map((e, i) =>
 
                                     (<BsStar key={i} />))}
-                        </p>
+                        </p> */}
 
                     </div>
                     <div className="flex justify-end p-2">
