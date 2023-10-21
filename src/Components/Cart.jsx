@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import cart from "/src/assets/Images/cart-image.jpg";
+import { AiFillCloseSquare } from "react-icons/ai";
 
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
-import { AiFillCloseSquare } from "react-icons/Ai"
+
 const Cart = ({ addItem, setAddItem, setIsOpen }) => {
 
 
