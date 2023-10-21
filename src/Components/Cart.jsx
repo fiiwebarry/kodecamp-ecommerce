@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
+import cart from "/src/assets/Images/cart-image.jpg";
 
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
-const Cart = ({ addItem, setAddItem }) => {
+import { AiFillCloseSquare } from "react-icons/Ai"
+const Cart = ({ addItem, setAddItem, setIsOpen }) => {
 
 
     const incrementHandler = (id) => {
@@ -46,29 +48,47 @@ const Cart = ({ addItem, setAddItem }) => {
 
 
     return (
-        <div className="bg-[url('./assets/cart.jpg')] bg-no-repeat bg-contain h-[595px]  w-[900px]">
+        <div className="">
+            <div className="absolute top-20  bg-white right-0 h-screen w-1/3 z-50  rounded border shadow-lg">
+                <div className="flex justify-end p-4">
+                    <AiFillCloseSquare onClick={() => setIsOpen(false)} className="text-[30px] " />
+                </div>
 
-            {addItem.length < 1 ? (<div><h1>Cart is Empty</h1></div>) : (<div>
-                {addItem.map((prod) => {
+                {addItem.length < 1 ? (<div className=""> <h1 className="flex justify-center text-[40px] text-[orange]">Cart is Empty</h1><img src={cart} />
+                </div>) : (<div className="rounded border bg-white shadow-lg p-4">
+                    {addItem.map((prod) => {
 
-                    const { id, description, quantity } = prod;
-                    return (
-                        <div key={id}>
-                            <p>{description}</p>
+                        const { id, image, quantity } = prod;
+                        return (
+                            <div key={id} className="grid grid-cols-3 mb-7">
+                                <div>
+                                    <img className="w-[70px]" src={image} />
 
-
-                            <button onClick={() => incrementHandler(id)}>+</button>
-                            <span>{quantity}</span>
-                            <button onClick={() => decrementHandler(id)}>-</button>
-
-                            <button onClick={() => removeBtn(id)}>Remove</button>
-                        </div>
-                    )
-
+                                </div>
 
 
-                })}
-            </div>)}
+
+                                <div>
+                                    <button onClick={() => incrementHandler(id)}>+</button>
+                                    <span>{quantity}</span>
+                                    <button onClick={() => decrementHandler(id)}>-</button>
+                                    <div>
+                                        <button onClick={() => removeBtn(id)}>Remove</button>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        )
+
+
+
+                    })}
+                </div>)}
+
+
+            </div>
 
 
 
