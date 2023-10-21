@@ -55,9 +55,9 @@ const Products = ({ addItem, setAddItem }) => {
                 {products.length > 0 && products.map((product) => {
                     const { id, title, image, description, price, rating } = product;
                     return (
-                        <div className="rounded border bg-white shadow-lg w-[340px]" key={id}><Link
-                            to={`/products/${id}`}
-                        >
+                        <div className="rounded border bg-white shadow-lg w-[340px]" key={id}>
+
+
 
                             <div className=" px-4 pt-4 pb-10 gap-3 bg-white relative">
 
@@ -86,11 +86,14 @@ const Products = ({ addItem, setAddItem }) => {
                             </div>
 
 
-
-
-                        </Link>
-                            <div className="flex justify-end p-2">
-                                <button onClick={() => addProduct(product)} className="px-3 py-2 border-2 border-solid rounded-lg bg-gray-50 border-red-900 text-red-800 flex  gap-2 items-center"> <BsCart4 />Add</button>
+                            <div className="flex justify-between p-2">
+                                <div className="flex justify-end p-2">
+                                    <button onClick={() => addProduct(product)} className="px-3 py-2 border-2 border-solid rounded-lg bg-[#15158d] border-[#15158d] text-[#ffff] flex  gap-2 items-center"> <BsCart4 />Add</button>
+                                </div>
+                                <Link
+                                    to={`/products/${id}`}>
+                                    <h2 className="mt-2 px-3 py-2 border-2 border-solid rounded-lg bg-[brown] border-[brown] text-[#ffff] flex  gap-2 items-center">View Product</h2>
+                                </Link>
                             </div>
                         </div>
 

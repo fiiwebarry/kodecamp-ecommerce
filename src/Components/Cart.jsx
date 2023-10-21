@@ -49,27 +49,28 @@ const Cart = ({ addItem, setAddItem, setIsOpen }) => {
 
     return (
         <div className="">
-            <div className="absolute top-20  bg-white right-0 h-screen w-1/3 z-50  rounded border shadow-lg">
+            <div className="absolute top-20  bg-white right-0 h-screen w-1/3 z-50  rounded border shadow-lg P-3">
                 <div className="flex justify-end p-4">
                     <AiFillCloseSquare onClick={() => setIsOpen(false)} className="text-[30px] " />
                 </div>
 
                 {addItem.length < 1 ? (<div className=""> <h1 className="flex justify-center text-[40px] text-[orange]">Cart is Empty</h1><img src={cart} />
-                </div>) : (<div className="rounded border bg-white shadow-lg p-4">
+                </div>) : (<div className="rounded border bg-white shadow-lg p-7">
                     {addItem.map((prod) => {
 
-                        const { id, image, quantity } = prod;
+                        const { id, image, title, quantity } = prod;
                         return (
                             <div key={id} className="grid grid-cols-3 mb-7">
+
+                                <img className="w-[70px]" src={image} />
+                                <p className="mr-7">{title}</p>
+
+
+
+
+
                                 <div>
-                                    <img className="w-[70px]" src={image} />
-
-                                </div>
-
-
-
-                                <div>
-                                    <button onClick={() => incrementHandler(id)}>+</button>
+                                    <button className="rounded bg-[blue]" onClick={() => incrementHandler(id)}>+</button>
                                     <span>{quantity}</span>
                                     <button onClick={() => decrementHandler(id)}>-</button>
                                     <div>
