@@ -61,22 +61,20 @@ const Cart = ({ addItem, setAddItem, setIsOpen }) => {
 
                         const { id, image, title, quantity } = prod;
                         return (
-                            <div key={id} className="grid grid-cols-3 mb-7">
+                            <div key={id} className="grid grid-cols-3 mb-7 gap-2">
 
-                                <img className="w-[70px]" src={image} />
-                                <p className="mr-7">{title}</p>
-
-
+                                <img className="w-[170px]" src={image} />
+                                <p className="mt-8 ">{title.slice(0, 38)}</p>
 
 
-
-                                <div>
-                                    <button className="rounded bg-[blue]" onClick={() => incrementHandler(id)}>+</button>
-                                    <span>{quantity}</span>
-                                    <button onClick={() => decrementHandler(id)}>-</button>
-                                    <div>
-                                        <button onClick={() => removeBtn(id)}>Remove</button>
+                                <div className="mt-7 ">
+                                    <button className="rounded bg-[blue] w-[40px] text-[#ffff] mr-1" onClick={() => incrementHandler(id)}>+</button>
+                                    <span className="text-[20px] mr-1">{quantity}</span>
+                                    <button className="rounded bg-[blue] w-[40px] text-[#ffff]" onClick={() => decrementHandler(id)}>-</button>
+                                    <div className="flex ">
+                                        <button className="mt-5 rounded bg-[brown] w-[399px] h-8 text-[#ffff]" onClick={() => removeBtn(id)}>Remove</button>
                                     </div>
+
                                 </div>
 
 

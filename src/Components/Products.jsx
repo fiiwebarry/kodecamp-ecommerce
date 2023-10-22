@@ -91,7 +91,7 @@ const Products = ({ addItem, setAddItem }) => {
                                     <button onClick={() => addProduct(product)} className="px-3 py-2 border-2 border-solid rounded-lg bg-[#15158d] border-[#15158d] text-[#ffff] flex  gap-2 items-center"> <BsCart4 />Add</button>
                                 </div>
                                 <Link
-                                    to={`/products/${id}`}>
+                                    to={`//${id}`}>
                                     <h2 className="mt-2 px-3 py-2 border-2 border-solid rounded-lg bg-[brown] border-[brown] text-[#ffff] flex  gap-2 items-center">View Product</h2>
                                 </Link>
                             </div>
