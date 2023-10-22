@@ -49,8 +49,8 @@ const Cart = ({ addItem, setAddItem, setIsOpen }) => {
 
 
     return (
-        <div className="">
-            <div className="absolute top-20  bg-white right-0 h-screen w-1/3 z-50  rounded border shadow-lg P-3">
+        <div className="sm:w-[190%]">
+            <div className="absolute top-20  bg-white right-0 h-screen sm:w-[190%] md:w-1/3 z-50  rounded border shadow-lg P-3">
                 <div className="flex justify-end p-4">
                     <AiFillCloseSquare onClick={() => setIsOpen(false)} className="text-[30px] " />
                 </div>
