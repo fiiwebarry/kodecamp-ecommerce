@@ -20,7 +20,6 @@ const Product = () => {
 
 
             if (response.status === 200) {
-                // console.log(response)
                 setProduct(response.data)
                 setIsLoading(false)
             }
@@ -41,9 +40,9 @@ const Product = () => {
     const { title, image, price, description } = product;
 
     return (
-        <div>
+        <div className="flex justify-center mt-[120px]">
             {isLoading ? (<div> <h1>Loading....</h1></div >) : (<div>
-                <div className="rounded border bg-white shadow-lg w-[340px]" >
+                <div className="rounded border bg-white shadow-lg w-[840px] h-[500px]" >
 
                     <div className=" px-4 pt-4 pb-10 gap-3 bg-white relative">
 
@@ -51,23 +50,11 @@ const Product = () => {
                         <p className="mt-[2px] text-base font-semibold">{title}</p>
                         <p>{description}</p>
                         <p> Price: ${price}</p>
-                        {/* <p>{rating.rate}</p> */}
 
-                        {/* <p className="flex"> {[
-                            ...Array(Math.round(rating.rate))].map((e, i) =>
-
-                                (<BsStarFill key={i} className="text-orange-500" />))
-                        }
-                            {[
-                                ...Array(5 - Math.round(rating.rate))].map((e, i) =>
-
-                                    (<BsStar key={i} />))}
-                        </p> */}
 
                     </div>
-                    <div className="flex justify-end p-2">
-                        <button className="px-3 py-2 border-2 border-solid rounded-lg bg-gray-50 border-red-900 text-red-800 flex  gap-2 items-center"> <BsCart4 />Add</button>
-                    </div></div>
+
+                </div>
             </div>)
             }
         </div>
