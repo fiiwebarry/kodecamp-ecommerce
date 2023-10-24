@@ -15,7 +15,7 @@ const Navbar = ({ addItem, setAddItem }) => {
     return (
         <div className="p-4 shadow-lg  mb-[20px]  ">
             <div className="container mx-auto w-[90%] flex justify-between">
-                <h1 className="text-blue-500 font-semibold text-3xl font-poppins">GunFun</h1>
+                <h1 className="text-[orange] font-semibold text-3xl font-poppins">KODECAMP<span className="text-[blue]">ECOMMERCE</span ></h1>
                 <div className="text-[40px] relative">
                     <TiShoppingCart onClick={toggleCart} />
 
