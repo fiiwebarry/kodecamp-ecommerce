@@ -45,7 +45,7 @@ const Cart = ({ addItem, setAddItem, setIsOpen }) => {
     }
 
 
-
+    let grandTotal = 0;
 
 
     return (
@@ -59,12 +59,19 @@ const Cart = ({ addItem, setAddItem, setIsOpen }) => {
                 </div>) : (<div className="rounded border bg-white shadow-lg p-7">
                     {addItem.map((prod) => {
 
-                        const { id, image, title, quantity } = prod;
+                        const { id, image, title, quantity, price } = prod;
+                        const totalAmount = Math.round(quantity * price);
+
+                        grandTotal += totalAmount;
                         return (
                             <div key={id} className="grid grid-cols-3 mb-7 gap-2">
 
                                 <img className="w-[170px]" src={image} />
-                                <p className="mt-8 ">{title.slice(0, 38)}</p>
+                                <div>
+                                    <p className="mt-8 ">{title.slice(0, 178)}</p>
+                                    <p>Price: ${Math.round(price)}</p>
+                                </div>
+
 
 
                                 <div className="mt-7 ">
@@ -75,19 +82,23 @@ const Cart = ({ addItem, setAddItem, setIsOpen }) => {
                                         <button className="mt-5 rounded bg-[brown] w-[399px] h-8 text-[#ffff]" onClick={() => removeBtn(id)}>Remove</button>
                                     </div>
 
+
                                 </div>
 
+                                <h2>Item Amount :${totalAmount} </h2>
 
 
                             </div>
+
                         )
 
 
 
                     })}
                 </div>)}
-
-
+                <hr className="bg-[brown]" />
+                <h1 className="text-[brown] text-[30px] p-4"> Grand Total : ${grandTotal}</h1>
+                <hr className="bg-[brown]" />
             </div>
 
 
