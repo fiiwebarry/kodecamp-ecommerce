@@ -34,8 +34,8 @@ const SignUp = () => {
     };
     return (
         <section className="">
-            <div className=" lg:flex lg:flex-row  lg:container mx-auto lg:w-[85%]    lg:gap-[120px]  md:flex md:flex-col md:gap-[50px] flex flex-col">
-                <div className="lg:pt-[140px]">
+            <div className=" lg:flex lg:flex-row  lg:container mx-auto lg:w-[85%]    lg:gap-[140px]  md:flex md:flex-col md:gap-[50px] flex flex-col">
+                <div className="lg:pt-[140px] pt-9">
                     <Link to="/">
                         <div className="flex mb-[20px]">
                             <BiArrowBack className="mt-1 text-[20px]" />

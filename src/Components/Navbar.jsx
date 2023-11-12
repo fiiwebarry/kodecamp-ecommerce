@@ -48,7 +48,7 @@ const Navbar = ({ addItem, setAddItem }) => {
             </div>
             {isOpen && (<Cart className="fixed top-0 right-0 h-screen w-1/3" addItem={addItem} setAddItem={setAddItem} isOpen={isOpen} setIsOpen={setIsOpen} />
             )}
-            {show && (<MobileNavbar className="lg:hidden md:hidden flex top-0 fixed" />)}
+            {show && (<MobileNavbar className="lg:hidden md:hidden flex top-0 fixed" setShow={setShow} show={show} />)}
 
 
         </div>

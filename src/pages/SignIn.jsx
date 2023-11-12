@@ -6,6 +6,7 @@ import {
     AiOutlineEye,
     AiOutlineEyeInvisible,
 } from "react-icons/ai";
+import { BiArrowBack } from "react-icons/bi"
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -51,6 +52,11 @@ const SignIn = () => {
         <section className="">
             <div className=" lg:flex lg:flex-row md:flex  md:flex-col flex flex-col container mx-auto w-[85%] lg:gap-[120px]  gap-4 pt-[110px]">
                 <div className="">
+                    <Link to="/">
+                        <div className="flex mb-[20px]">
+                            <BiArrowBack className="mt-1 text-[20px]" />
+                            <p className="mb-[20px] font-medium">Go Back</p>
+                        </div></Link>
                     <img src={desk} />
                 </div>
                 <div className="pt-3">
