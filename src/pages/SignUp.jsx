@@ -14,7 +14,7 @@ import { useState } from "react";
 const SignUp = () => {
     const Navigate = useNavigate()
     const [showPassword, setshowPassword] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+
 
     const schema = yup.object().shape({
         email: yup.string().email('Invalid email').required('Email is required'),
@@ -35,7 +35,7 @@ const SignUp = () => {
     return (
         <section className="">
             <div className=" lg:flex lg:flex-row  lg:container mx-auto lg:w-[85%]    lg:gap-[120px]  md:flex md:flex-col md:gap-[50px] flex flex-col">
-                <div className="pt-[140px]">
+                <div className="lg:pt-[140px]">
                     <Link to="/">
                         <div className="flex mb-[20px]">
                             <BiArrowBack className="mt-1 text-[20px]" />
@@ -176,7 +176,7 @@ const SignUp = () => {
 
 
                             <button
-                                type="submmit"
+                                type="submit"
                                 onClick={handleSubmit(onsubmit)}
                                 className="bg-[#3333FF] text-[#F0F0FF] rounded-lg px-5 py-2 text-xl font-semibold"
                             >

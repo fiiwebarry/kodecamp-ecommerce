@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import Cart from "./Cart";
-// import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi"
 import { TiShoppingCart } from "react-icons/ti"
 import MobileNavbar from "./MobileNavbar";
 
@@ -10,10 +10,16 @@ import MobileNavbar from "./MobileNavbar";
 const Navbar = ({ addItem, setAddItem }) => {
 
     const [isOpen, setIsOpen] = useState();
+    const [show, setShow] = useState();
+
 
     const toggleCart = () => {
 
         setIsOpen(!isOpen)
+    }
+    const toggleNav = () => {
+
+        setShow(!show)
     }
 
     return (
@@ -24,10 +30,11 @@ const Navbar = ({ addItem, setAddItem }) => {
 
                 <div className="flex gap-4">
                     <div className="flex gap-4">
-                        <p className="mt-2 font-medium lg:flex md:flex hidden">Log in</p>
+                        <Link to="/signIn"><p className="mt-2 font-medium lg:flex md:flex hidden">Log in</p></Link>
                         <Link to="/signUp">
                             <button className="lg:flex md:flex hidden bg-[blue] rounded text-[18px] text-[#FFFF] p-2">Sign up</button>
                         </Link>
+                        <GiHamburgerMenu onClick={toggleNav} className="lg:hidden md:hidden flex text-[40px]" />
                     </div>
                     <div className="text-[40px] relative">
                         <TiShoppingCart onClick={toggleCart} />
@@ -41,7 +48,8 @@ const Navbar = ({ addItem, setAddItem }) => {
             </div>
             {isOpen && (<Cart className="fixed top-0 right-0 h-screen w-1/3" addItem={addItem} setAddItem={setAddItem} isOpen={isOpen} setIsOpen={setIsOpen} />
             )}
-            <MobileNavbar className="lg:hidden md:hidden flex top-0 fixed" />
+            {show && (<MobileNavbar className="lg:hidden md:hidden flex top-0 fixed" />)}
+
 
         </div>
 

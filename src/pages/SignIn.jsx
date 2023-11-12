@@ -1,3 +1,4 @@
+
 import desk from "/src/assets/Images/amico.svg";
 import { useEffect, useState } from "react";
 import {
@@ -5,12 +6,39 @@ import {
     AiOutlineEye,
     AiOutlineEyeInvisible,
 } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const SignIn = () => {
+    const Navigate = useNavigate()
     const [userDetails, setUserDetails] = useState({})
     const [showPassword, setshowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+
+        // Access user input from the form
+        const formData = new FormData(event.target);
+        const userInput = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        };
+
+
+        // Compare user input with local storage data
+        if (
+            userDetails &&
+            userInput.email === userDetails.email &&
+            userInput.password === userDetails.password
+        ) {
+            // Successful login, navigate to the dashboard or another page
+            Navigate("/")
+        } else {
+            // Display an error message for unsuccessful login
+            setErrorMessage('Invalid email or password');
+        }
+    };
 
 
     useEffect(() => {
@@ -21,7 +49,7 @@ const SignIn = () => {
 
     return (
         <section className="">
-            <div className=" lg:flex  md:flex  md:flex-col flex flex-col container mx-auto w-[85%] lg:gap-[120px]  gap-4 pt-[110px]">
+            <div className=" lg:flex lg:flex-row md:flex  md:flex-col flex flex-col container mx-auto w-[85%] lg:gap-[120px]  gap-4 pt-[110px]">
                 <div className="">
                     <img src={desk} />
                 </div>
@@ -34,12 +62,12 @@ const SignIn = () => {
                             KodeCamp <span className="text-[blue]">Ecommerce</span>
                         </h2>
                         <h4 className="font-plus-jakarta-sans text-2xl font-semibold text-center">
-                            Sign in  Account
+                            Sign In
                         </h4>
                         <p className="font-georgia text-sm  text-center">
                             Shop online and be part of the movement
                         </p>
-                        <form action="" className="flex flex-col gap-6">
+                        <form action="" onSubmit={handleFormSubmit} className="flex flex-col gap-6">
 
 
 
@@ -55,7 +83,7 @@ const SignIn = () => {
                                     type="email"
                                     placeholder="example@gmail.com"
                                     className="w-full border bg-transparent  rounded-md outline-none p-2.5 leading-none font-medium text-lg placeholder:text-[#C8C8DC]"
-                                // {...register('email')}
+
                                 />
                                 <AiOutlineMail className="absolute text-lg right-4 top-3.5" />
                             </div>
@@ -73,8 +101,8 @@ const SignIn = () => {
                                         name="password"
                                         type={showPassword ? "text" : "password"}
                                         placeholder="***********"
-                                    // className={`w-full border ${errors.password ? 'border-red-500' : 'border-[#0A0A29]'} bg-transparent mt-2 rounded-md outline-none p-2.5 leading-none font-medium text-lg placeholder:text-[#C8C8DC]`}
-                                    // {...register('password')}
+                                        className="w-full border  bg-transparent mt-2 rounded-md outline-none p-2.5 leading-none font-medium text-lg placeholder:text-[#C8C8DC]"
+
                                     />
                                     {showPassword ? (
                                         <AiOutlineEyeInvisible
@@ -88,14 +116,14 @@ const SignIn = () => {
                                         />
                                     )}
                                 </div>
-                                {/* <p className='text-red-500'>{errors.password?.message}</p> */}
+                                {errorMessage && <p className="text-red-500">{errorMessage}</p>}
                             </div>
 
 
 
                             <button
-                                type="submmit"
-                                onClick={""}
+                                type="submit"
+
                                 className="bg-[#3333FF] text-[#F0F0FF] rounded-lg px-5 py-2 text-xl font-semibold"
                             >
                                 Sign in
