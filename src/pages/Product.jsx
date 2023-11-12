@@ -42,7 +42,7 @@ const Product = () => {
     return (
         <div className="flex justify-center mt-[120px]">
             {isLoading ? (<div> <h1>Loading....</h1></div >) : (<div>
-                <div className="rounded border bg-white shadow-lg w-[840px] h-[500px]" >
+                <div className="rounded border bg-white shadow-lg md:w-[840px] h-[500px]" >
 
                     <div className=" px-4 pt-4 pb-10 gap-3 bg-white relative">
 

@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 
 const productContext = React.createContext();
 
+
 export const productContextProvider = ({ children }) => {
 
+
     return (
-        <productContextProvider value={ }>
+        <productContextProvider value={{}}>
 
             {children}
         </productContextProvider>
