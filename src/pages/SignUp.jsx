@@ -1,11 +1,7 @@
 import desk from "/src/assets/Images/amico.svg";
 import { BiArrowBack } from "react-icons/bi"
 import { useForm } from "react-hook-form";
-import {
-    AiOutlineMail,
-    AiOutlineEye,
-    AiOutlineEyeInvisible,
-} from "react-icons/ai";
+import { AiOutlineMail, AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,21 +29,15 @@ const SignUp = () => {
         Navigate("/signIn")
     };
     return (
-        <section className="">
-            <div className=" lg:flex lg:flex-row  lg:container mx-auto lg:w-[85%]    lg:gap-[140px]  md:flex md:flex-col md:gap-[50px] flex flex-col">
-                <div className="lg:pt-[140px] pt-9">
-                    <Link to="/">
-                        <div className="flex mb-[20px]">
-                            <BiArrowBack className="mt-1 text-[20px]" />
-                            <p className="mb-[20px] font-medium">Go Back</p>
-                        </div></Link>
-
-                    <div><img className="lg:w-[470px]" src={desk} /></div>
+        <section className="w-full lg:pt-[50px]">
+            <div className="lg:px-[100px] lg:flex lg:flex-row lg:justify-between lg:mx-auto md:flex md:flex-col md:gap-[50px] flex flex-col">
+                <div className="lg:pt-[140px] pt-9  lg:w-[700px]">
+                    <div><img className="lg:w-[670px]" src={desk} /></div>
                 </div>
-                <div className="pt-11">
+                <div className="pt-11 lg:w-[700px]">
                     <div
                         style={{ boxShadow: "5px 10px 20px 0px rgba(0, 0, 0, 0.25)" }}
-                        className=" md:w-[500px] lg:w-[500px] sm:flex-1  bg-[#f3f3f3] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5"
+                        className=" md:w-[500px] lg:w-[610px] sm:flex-1  bg-[#f3f3f3] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5"
                     >
 
                         <h4 className="font-plus-jakarta-sans text-2xl font-semibold text-center">
@@ -184,7 +174,7 @@ const SignUp = () => {
                             </button>
                             <p className="text-xl font-plus-jakarta-sans font-semibold text-center">
                                 Have an account?
-                                <Link className="text-primary pl-2" to="/signIn">
+                                <Link className="text-primary font-bold text-[brown] pl-2" to="/signIn">
                                     Log in
                                 </Link>
                             </p>

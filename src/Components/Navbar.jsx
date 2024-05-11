@@ -25,15 +25,11 @@ const Navbar = ({ addItem, setAddItem }) => {
     return (
         <div className="p-4 shadow-lg  mb-[20px]  ">
             <div className="container mx-auto w-[90%] flex justify-between">
-                <h1 className="text-[brown] font-semibold text-3xl font-poppins">KODECAMP<span className="text-[blue]"> ECOMMERCE</span ></h1>
-
-
+                <h1 className="text-[brown] font-semibold text-3xl font-poppins">GrittyBee<span className="text-[blue]"> Shopping Mall </span ></h1>
                 <div className="flex gap-4">
                     <div className="flex gap-4">
-                        <Link to="/signIn"><p className="mt-2 font-medium lg:flex md:flex hidden">Log in</p></Link>
-                        <Link to="/signUp">
-                            <button className="lg:flex md:flex hidden bg-[blue] rounded text-[18px] text-[#FFFF] p-2">Sign up</button>
-                        </Link>
+                        <button className="lg:flex md:flex hidden bg-[blue] rounded text-[18px] text-[#FFFF] p-2">Log out</button>
+
                         <GiHamburgerMenu onClick={toggleNav} className="lg:hidden md:hidden flex text-[40px]" />
                     </div>
                     <div className="text-[40px] relative">

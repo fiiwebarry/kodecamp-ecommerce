@@ -1,32 +1,26 @@
 
 import desk from "/src/assets/Images/amico.svg";
 import { useEffect, useState } from "react";
-import {
-    AiOutlineMail,
-    AiOutlineEye,
-    AiOutlineEyeInvisible,
-} from "react-icons/ai";
-import { BiArrowBack } from "react-icons/bi"
-import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineMail, AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux"
+import { authActions } from "/src/features/AuthSlice.js"
 
 
 const SignIn = () => {
-    const Navigate = useNavigate()
+    const dispatch = useDispatch()
     const [userDetails, setUserDetails] = useState({})
     const [showPassword, setshowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-
         // Access user input from the form
         const formData = new FormData(event.target);
         const userInput = {
             email: formData.get('email'),
             password: formData.get('password'),
         };
-
-
         // Compare user input with local storage data
         if (
             userDetails &&
@@ -34,7 +28,7 @@ const SignIn = () => {
             userInput.password === userDetails.password
         ) {
             // Successful login, navigate to the dashboard or another page
-            Navigate("/")
+            dispatch(authActions.login())
         } else {
             // Display an error message for unsuccessful login
             setErrorMessage('Invalid email or password');
@@ -49,34 +43,24 @@ const SignIn = () => {
     }, [])
 
     return (
-        <section className="">
-            <div className=" lg:flex lg:flex-row md:flex  md:flex-col flex flex-col container mx-auto w-[85%] lg:gap-[120px]  gap-4 pt-[110px]">
-                <div className="">
-                    <Link to="/">
-                        <div className="flex mb-[20px]">
-                            <BiArrowBack className="mt-1 text-[20px]" />
-                            <p className="mb-[20px] font-medium">Go Back</p>
-                        </div></Link>
-                    <img src={desk} />
+        <section className="w-full lg:pt-[60px]">
+            <div className=" lg:px-[100px] lg:flex lg:flex-row md:flex  md:flex-col flex flex-col lg:mx-auto lg:justify-between  gap-4 pt-[110px]">
+                <div className="lg:w-[800px]">
+
+                    <img className="w-[700px]" src={desk} />
                 </div>
-                <div className="pt-3">
+                <div className=" lg:w-[700px] pt-3">
                     <div
                         style={{ boxShadow: "5px 10px 20px 0px rgba(0, 0, 0, 0.25)" }}
-                        className="  lg:w-[500px] sm:flex-1  bg-[#f3f3f3] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5"
+                        className="  lg:w-[600px] sm:flex-1  bg-[#f3f3f3] sm:mb-0 rounded-3xl px-10 sm:px-7 md:px-12 py-8 flex flex-col gap-5"
                     >
-                        <h2 className="text-3xl text-[brown] font-lobster text-center">
-                            KodeCamp <span className="text-[blue]">Ecommerce</span>
+                        <h2 className="text-3xl text-[brown] text-[24px] font-semibold font-lobster text-center">
+                            GrittyBee <span className="text-[blue] font-semibold text-[24px]">Shopping Mall</span>
                         </h2>
-                        <h4 className="font-plus-jakarta-sans text-2xl font-semibold text-center">
-                            Sign In
-                        </h4>
-                        <p className="font-georgia text-sm  text-center">
-                            Shop online and be part of the movement
+                        <p className="font-georgia text-[20px] font-semibold text-center">
+                            Shop online
                         </p>
                         <form action="" onSubmit={handleFormSubmit} className="flex flex-col gap-6">
-
-
-
                             <label
                                 className="font-medium text-xl font-plus-jakarta-sans"
                                 htmlFor="email"
@@ -94,7 +78,6 @@ const SignIn = () => {
                                 <AiOutlineMail className="absolute text-lg right-4 top-3.5" />
                             </div>
                             {/* <p className='text-red-500'>{errors.email?.message}</p> */}
-
                             <div>
                                 <label
                                     className="font-medium text-xl font-plus-jakarta-sans"
@@ -124,9 +107,6 @@ const SignIn = () => {
                                 </div>
                                 {errorMessage && <p className="text-red-500">{errorMessage}</p>}
                             </div>
-
-
-
                             <button
                                 type="submit"
 
@@ -135,6 +115,11 @@ const SignIn = () => {
                                 Sign in
                             </button>
 
+                            <div className="flex justify-center gap-3">
+                                <p className="text-[20px]">Don't have an account</p>
+                                <Link to="/signUp">
+                                    <p className=" text-[brown] text-[20px] font-bold flex justify-center">Register</p></Link>
+                            </div>
                         </form>
                     </div>
                 </div>
