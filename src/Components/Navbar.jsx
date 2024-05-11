@@ -1,24 +1,26 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Link } from "react-router-dom"
 import Cart from "./Cart";
 import { GiHamburgerMenu } from "react-icons/gi"
 import { TiShoppingCart } from "react-icons/ti"
 import MobileNavbar from "./MobileNavbar";
+import { useDispatch } from 'react-redux'
+import { authActions } from "/src/features/AuthSlice.js"
 
 
 const Navbar = ({ addItem, setAddItem }) => {
 
+    const dispatch = useDispatch()
+
+    const handleLogout = () => {
+        dispatch(authActions.logOut())
+    }
     const [isOpen, setIsOpen] = useState();
     const [show, setShow] = useState();
-
-
     const toggleCart = () => {
-
         setIsOpen(!isOpen)
     }
     const toggleNav = () => {
-
         setShow(!show)
     }
 
@@ -28,7 +30,7 @@ const Navbar = ({ addItem, setAddItem }) => {
                 <h1 className="text-[brown] font-semibold text-3xl font-poppins">GrittyBee<span className="text-[blue]"> Shopping Mall </span ></h1>
                 <div className="flex gap-4">
                     <div className="flex gap-4">
-                        <button className="lg:flex md:flex hidden bg-[blue] rounded text-[18px] text-[#FFFF] p-2">Log out</button>
+                        <button onClick={handleLogout} className="lg:flex md:flex hidden bg-[blue] rounded text-[18px] text-[#FFFF] p-2">Log out</button>
 
                         <GiHamburgerMenu onClick={toggleNav} className="lg:hidden md:hidden flex text-[40px]" />
                     </div>
